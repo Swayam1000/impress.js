@@ -1,0 +1,414 @@
+<!doctype html>
+<!--
+    
+    So you'd like to know how to use impress.js?
+    
+    You've made the first, very important step - you're reading the source code.
+    And that's how impress.js presentations are built - with HTML and CSS code.
+    
+    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
+    More importantly, you need to be a designer. There are no default styles or layouts for impress.js presentations.
+    
+    You need to design and build it by hand.
+    
+    So...
+    
+    Would you still like to know how to use impress.js?
+    
+-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | Intel Galileo</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <!--
+        
+        Impress.js doesn't depend on any external stylesheets. It adds all of the styles it needs for the
+        presentation to work.
+        
+        This style below contains styles only for demo presentation. Browse it to see how impress.js
+        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
+        you to use them directly in your presentation.
+        
+        Be creative, build your own. We don't really want all impress.js presentations to look the same,
+        do we?
+        
+        When creating your own presentation get rid of this file. Start from scratch, it's fun!
+        
+    -->
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<!--
+    
+    Body element is used by impress.js to set some useful class names, that will allow you to detect
+    the support and state of the presentation in CSS or other scripts.
+    
+    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
+    support features required by impress.js, so you should apply some fallback styles in your CSS.
+    It's not necessary to add it manually on this element. If the script detects that browser is not
+    good enough it will add this class, but keeping it in HTML means that users without JavaScript
+    will also get fallback styles.
+    
+    When impress.js script detects that browser supports all required features, this class name will
+    be removed.
+    
+    The class name on body element also depends on currently active presentation step. More details about
+    it can be found later, when `hint` element is being described.
+    
+-->
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    
+    Now that's the core element used by impress.js.
+    
+    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
+    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
+    
+    You probably won't need it now, but there are some configuration options that can be set on this element.
+    
+    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
+    a number of ms. It defaults to 1000 (1s).
+    
+    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
+    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
+    If you are willing to change this value make sure you understand how CSS perspective works:
+    https://developer.mozilla.org/en/CSS/perspective
+    
+    But as I said, you won't need it for now, so don't worry - there are some simple but interesting things
+    right around the corner of this tag ;)
+    
+-->
+<div id="impress">
+
+    <!--
+        
+        Here is where interesting thing start to happen.
+        
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        Positioning information is passed through data attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
+        
+        It will not be rotated or scaled.
+        
+    -->
+    <div id="bored" class="step" data-x="-1500" data-y="-1500" data-rotate-z="150" data-rotate-x="90" data-rotate-y="90" data-scale="50" style="font-family: Cooper Std; color:#006994;font-size: 3em">
+        <h1><b>WELCOME!!!</b></h1>
+    </div>
+
+    <!--
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        
+        So in the example below it'll be `step-2`.
+        
+        The hash part of the url when this step is active will be `#/step-2`.
+        
+        You can also use `#step-2` in a link, to point directly to this particular step.
+        
+        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
+        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
+        
+    -->
+
+    <div class="step" data-x="110" data-y="110" data-rotate-y="90" data-scale="2" style="font-family: Cooper Std; color:#006994;font-size: 4.5em">
+        <q><strong><i>INTEL GALILEO </i></strong></q><br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<q><i>By Swayam </i></q>
+    </div>
+
+   
+    <div class="step" data-x="1300" data-y="350" data-rotate-z="90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1.6em"><strong><center>Let's start with IoT</center></strong></q>    
+    </div>
+
+    <div class="step" data-x="1300" data-y="350"  data-rotate-x="90" data-scale="3">
+        <img src="iot1.jpg" height="100%" width="100%">
+    </div> 
+    
+    <div class="step" data-x="-300" data-y="1000" data-rotate-z="-90" data-rotate-y="40" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 2em"><center>What is IoT?</center></q>
+    </div>
+
+    <div id="ing" class="step" data-x="2000" data-y="-4500" data-z="4500" data-rotate-x="90" style="font-family: Verdana; color:#006994;font-size: 2em">
+        
+        <p>The <b>Internet of Things (IoT)</b> is the network of physical objects or "things" embedded with <b class="positioning">electronics</b>, <b class="positioning"> software</b>, <b class="positioning"> sensors</b>, and <b class="positioning"> network connectivity</b> which enables these objects to collect and exchange data</p>
+        <br>
+        <b><p><i>The IoT links smart objects to the Internet</i></p>
+        <p><i class="scaling">M2M--->MACHINE TO MACHINE COMMUNICATION</i></p></b>
+    </div>
+    <div class="step" data-x="2700" data-y="-5500" data-z="4500" data-rotate-y="110" data-rotate-x="90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1.5em"><center>What can we do with IoT?</center></q>
+    </div>
+    <div class="step" data-x="3000" data-y="-6000" data-rotate-z="70" data-rotate-x="90">
+        <img src="iotex.JPG" height="105%" width="105%" vspace="1"
+        hspace="1">
+    </div>    
+
+    <div class="step" data-x="4000" data-y="-7000" data-rotate-z="90" data-rotate-x="90">
+        <img src="iotex2.jpg" height="110%" width="110%" vspace="1"
+        hspace="1">
+    </div>
+    <div class="step" data-x="5000" data-y="-600" data-rotate-z="90" data-rotate-x="90">
+        <img src="brillo.png" height="110%" width="110%" vspace="1"
+        hspace="1">
+    </div>
+
+    <div class="step" data-x="5000" data-y="-6500" data-z="5500" data-rotate-x="90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1.5em"><center>What is BRILLO?</center></q>
+    </div>
+
+    
+    <div id="tiny" class="step" data-x="5000" data-y="-6500" data-z="5500" data-rotate-y="90" style="font-family: Verdana; color:#006994;font-size: 2.5em">
+        <p><b>Brillo</b> is an <b>IoT operating system</b> by <b>Google</b> anounced at Google I/O 2015</p><br>
+        <p>Brillo extends the <b>Android platform</b> to all connected devices, so they are easy to set up and work seamlessly with each other including smartphones.</p>
+
+    </div>
+
+    
+    <div class="step" data-x="3500" data-y="8850" data-rotate="270" data-scale="3">
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1.5em"><center>What is <i>WEAVE?</i></center></q>
+    </div>
+
+    <div class="step" data-x="5000" data-y="7600" data-rotate-z="90" data-rotate-x="90">
+        <img src="weave2.jpg" height="110%" width="110%" vspace="1"
+        hspace="1">
+    </div>
+
+    <div id="imagination" class="step" data-x="6700" data-y="-400" style="font-family: Verdena; color:#006994;font-size: 2.8em">
+        <p> Protocol for synchronizing data between smart devices is called <b class="imagination">Weave</b>.</p>
+         <br><p>Weave is a cross-platform common language (based on JSON) that will be available to developers.</p>
+    </div>
+
+    <div id="source" class="step" data-x="6300" data-y="3000" data-rotate="20" data-scale="4">
+        <p style="font-family: Cooper Std; color:#006994;font-size: 1em">Now let's start with <i>Intel Galileo...</i></p>
+    </div>
+
+    <div class="step" data-x="7000" data-y="5500" data-scale="2">
+        <img src="galileo1.jpg" height="110%" width="110%" vspace="1"
+        hspace="1">
+    </div>
+
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <p><span class="have">Have</span> <span class="you">you'll</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D</b>?!!</p>
+    </div>
+
+    <div class="step" data-x="1500" data-y="9000" data-rotate-x="-40" data-rotate-y="10">
+    <p><center style="font-family: Cooper Std; color:#006994;font-size: 1.5em">What is Intel Galileo??</center></p>
+    </div>
+    
+    <div id="qwerty" class="step" data-x="1500" data-y="9500" data-z="4500" data-rotate-x="90" style="font-family: Verdana; color:#006994;font-size: 2em">
+        
+        <p><b>Galileo </b> is a microcontroller board based on the<b class="positioning"><i>Intel Quark SoC X1000</i></b>,<br>application Processor <b class="positioning"><i>32-bit Intel Pentium-class system on a chip(SoC)</i></b></p>
+
+        <br>
+        <p>It is&nbsp&nbsp&nbsp&nbsp&nbsp     <b class="scaling"><i>Arduino</i></b>&nbsp&nbsp&nbsp&nbsp         compatible</p>
+    </div>
+
+    <div class="step" data-x="10000" data-y="10000" data-z="-10000">
+    <p><center style="font-family: Cooper Std; color:#006994;font-size: 1.5em">What is Arduino??</center></p>
+    </div>
+
+    <div id="a1" class="step" data-x="10000" data-y="10000" data-z="-10000" data-rotate-x="90" style="font-family: Verdana; color:#006994;font-size: 2em">
+        
+        <p><b>Arduino </b> is an open-source computer hardware and software company, project and user community that designs and manufactures microcontroller-based kits for building digital devices and interactive objects that can sense and control the physical world.
+
+        <br><br>
+        Arduino Software Development Environment to create programs for Galileo are called <b class="rotating">SKETCHES</b>        
+    </div>
+         
+    <div class="step" data-x="1000" data-y="5000" data-z="-10000" data-rotate-z="-90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>Now let's know about the Aritecture of Galileo...</center></q>
+    </div>
+
+    <div class="step" data-x="1000" data-y="5000" data-z="-1000" data-rotate-y="-90">
+        <img src="arch.jpg" height="80%" width="80%" vspace="1"
+        hspace="1">
+    </div>
+
+    <div class="step" data-x="-1000" data-y="5500">
+        <img src="quark.jpg" height="80%" width="80%" vspace="1"
+        hspace="1">
+    </div>
+
+    <div class="step" data-x="-3000" data-y="2000" data-z="1000" data-rotate-z="-90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>Now let's take a look at Components of Galileo Board...</center></q>
+    </div>
+
+    <div class="step" data-x="-1000" data-y="2000" data-z="-1500" data-rotate-z="-90" >
+        <center>
+        <q style="font-family: Cooper Std; color:#006994;font-size: 0.7em">Board Size---> 10 X 7 (cm)</q><br>
+        <q style="font-family: Cooper Std; color:#006994;font-size: 0.7em">USB Connectors</q><br>
+        <q style="font-family: Cooper Std; color:#006994;font-size: 0.7em">Ethernet Connector</q><br>
+        <q style="font-family: Cooper Std; color:#006994;font-size: 0.7em">Power Jack</q><br>
+        <q style="font-family: Cooper Std; color:#006994;font-size: 0.7em">2 Reset Buttons(Used to reset Sketches and processor)</q><br>
+        <q style="font-family: Cooper Std; color:#006994;font-size: 0.7em">ReBoot Button(Used to ReBoot Processor)</q><br>
+    </div>
+
+    <div class="step" data-x="-1000" data-y="-1000" data-z="-500" data-rotate-z="-90" >
+    <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>Analog-Digital I/O 20 pins</center></q>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#14 Digital I/O</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">&nbsp&nbsp&nbsp&nbsp&nbsp*6 can be used as PWM(pulse width modulation) outputs with 8/12-bits &nbsp&nbsp&nbsp&nbsp&nbsp of resolution</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#6 as Analog inputs with 12 bits of resolution</p><br>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#An ICSP[In-circuit serial programming] header</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#A JTAG[Joint test Action Group] header 10-pins(for debugging)</p>
+    </div>
+    
+
+    <div class="step" data-x="500" data-y="1000" data-z="-100" data-rotate-z="-90" >
+    <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>STORAGE OPTIONS ON GALILEO BOARD</center></q>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#PCLe(Peripheral Component Interconnect Express)</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">&nbsp&nbsp&nbsp&nbsp*mini-card Slot</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">&nbsp&nbsp&nbsp&nbsp*Provides USB 2.0 Host Port which supports 128 USB end point &nbsp&nbsp&nbsp&nbsp&nbsp&nbspdevices</p><br>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#8 MB Legacy SPI(Serial Peripheral Interface) to store firmware</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#256kb/512kb dedicated SKETCH storage</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#512kb embedded SRAM</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#256MB DRAM</p>
+    <p style="font-family: Verdena; color:#006994;font-size: .8em">#External microSD card support upto 32gb </p>
+    </div>
+    
+
+    <div class="step" data-x="500" data-y="2600" data-z="-100" data-rotate-z="-90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>Prime difference between  GEN1 and GEN2 Galileo Board</center></q><br><br>
+        <center><p style="font-family: Verdena; color:#006994;font-size: 1em">In GEN2 RAM is 512MB</p>
+        <p style="font-family: Verdena; color:#006994;font-size: 1em">Storage support extends to</p>
+        <p style="font-family: Verdena; color:#006994;font-size: 1em">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*Flash memory</p>
+        <p style="font-family: Verdena; color:#006994;font-size: 1em">*EEPROM</p></center>
+    </div>
+
+    <div class="step" data-x="-120" data-y="-3000" data-z="-3000" data-rotate-z="90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>Now let's compare Galileo with RaspberryPI</center><br><br>
+        <center>Which is better!!?</center></q>
+    </div>
+
+    <div class="step" data-x="-100" data-y="-3000" data-z="4000">
+        <img src="diff.jpg" height="105%" width="105%" vspace="1"
+        hspace="-1">
+    </div>
+    <div class="step" data-x="-1200" data-y="3000" data-z="-600" data-rotate-z="-90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>Positive Aspects of Galileo Board</center></q><br><br>
+        <center>
+        <p style="font-family: Verdena; color:#006994;font-size: 1em">Supports Real Time Clock(RTC) </p>
+        <p style="font-family: Verdena; color:#006994;font-size: 1em">Supports PCLe</p>
+    </div>
+
+
+    <div class="step" data-x="-12000" data-y="-30000" data-z="-400" data-rotate-z="90" >
+        <center style="font-family: Cooper Std; color:#006994;font-size: 1em">So should we use Galileo over RaspberryPI!??</center></q>
+    </div>
+    
+    <div class="step" data-x="-12000" data-y="-30000" data-z="-400" data-rotate-x="90" >
+        <center style="font-family: Cooper Std; color:#006994;font-size: 3em">NO</center>
+    </div>
+
+    <div class="step" data-x="-12000" data-y="-30000" data-z="-400" data-rotate-y="-90" >
+        <center style="font-family: Cooper Std; color:#006994;font-size: 2em">Why?</center>
+    </div>
+
+    <div class="step" data-x="-1200" data-y="-3000" data-z="-1000" data-rotate-z="-90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>Limitations of Galileo Board</center></q><br>
+        <center>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">Comparitively less Speed and less RAM size</p>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">Support for only Linux based OS</p>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">IDE that can be used is only Arduino IDE</p> 
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">Supports only GCC and ICC compilers</p> 
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">No GPU</p>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">No Audio/Video Support</p>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">No Camera</p>
+        </center>
+    </div>
+    
+
+
+
+    <div class="step" data-x="-2000" data-y="-3000" data-z="-1000" data-rotate-z="90" >
+        
+        <video width="110%" height="110%" autoplay>
+            <source src="Galileo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+
+<div class="step" data-x="-100" data-y="3000" data-z="-500" data-rotate-z="-90" >
+        <q style="font-family: Cooper Std; color:#006994;font-size: 1em"><center>BIBLOGRAPHY</center></q><br>
+        <center>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">For IoT slideshare.com and YouTube videos </p>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">For documentation of Galileo read www.arduino.cc/en/arduino-certified/Intel Galileo</p>
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">For Google Brillo visit https://developers.google.com/brillo/?hl=en</p>
+        
+        <p style="font-family: Verdena; color:#006994;font-size: .7em">For applications of Galileo watch YouTube videos</p>  
+        </center>
+    </div>
+
+    <div class="step" data-x="-3000" data-y="5000" data-z="1000" style="font-family: Cooper Std; color:#006994;font-size: 3em">
+    <center>
+    <p>Hope you all Enjoyed</p>
+    <p>THANK YOU!!!</p>
+        </center>
+    </div>
+
+    <div id="overview" class="step" data-x="1000" data-y="3500" data-scale="30">
+    </div>
+    <div class="hint">
+        <p>Use a spacebar or arrow keys to navigate</p>
+    </div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+<!--
+    
+    The `impress()` function also gives you access to the API that controls the presentation.
+    
+    Just store the result of the call:
+    
+        var api = impress();
+    
+    and you will get three functions you can call:
+    
+        `api.init()` - initializes the presentation,
+        `api.next()` - moves to next step of the presentation,
+        `api.prev()` - moves to previous step of the presentation,
+        `api.goto( idx | id | element, [duration] )` - moves the presentation to the step given by its index number
+                id or the DOM element; second parameter can be used to define duration of the transition in ms,
+                but it's optional - if not provided default transition duration for the presentation will be used.
+    
+-->
+
+</body>
+</html>
+
+
