@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 impress.js
 ============
 
@@ -301,3 +302,8 @@ Copyright 2011-2012 Bartek Szopka
 Released under the MIT and GPL (version 2 or later) Licenses.
 
 
+=======
+# impress.js
+
+This is the presentation of Intel Galileo with IoT using impress.js
+>>>>>>> dd1dba1ac3a7983b5f9341f1a68cca5889e6f767
